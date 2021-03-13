@@ -12,6 +12,7 @@
 Bước 1: Clone source về theo địa chỉ: <b>git clone https://github.com/phanvanthanh/LARA-ADMIN.git</b><br>
 Bước 2: Vào thư mục chứa source chạy lệnh: <b>composer update</b> <br>
 Bước 3: Sửa tên file <b>.env.example</b> thành file <b>.env</b> <br>
+Bước 4: Tạo cơ sở dữ liệu bằng script sql trong <b>database/script/db.sql</b><br>
 
 ## About Laravel
 
