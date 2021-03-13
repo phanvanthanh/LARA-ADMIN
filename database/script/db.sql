@@ -12,11 +12,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
--- Dumping database structure for alcomputer
-CREATE DATABASE IF NOT EXISTS `alcomputer` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `alcomputer`;
+-- Dumping database structure for laraadmin
+CREATE DATABASE IF NOT EXISTS `laraadmin` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `laraadmin`;
 
--- Dumping structure for table alcomputer.admin_resource
+-- Dumping structure for table laraadmin.admin_resource
 CREATE TABLE IF NOT EXISTS `admin_resource` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ten_hien_thi` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `admin_resource` (
   CONSTRAINT `admin_resource_parent_foreign` FOREIGN KEY (`parent_id`) REFERENCES `admin_resource` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=917 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table alcomputer.admin_resource: ~46 rows (approximately)
+-- Dumping data for table laraadmin.admin_resource: ~46 rows (approximately)
 /*!40000 ALTER TABLE `admin_resource` DISABLE KEYS */;
 INSERT INTO `admin_resource` (`id`, `ten_hien_thi`, `resource`, `method`, `action`, `parameter`, `parameter_value`, `parent_id`, `created_at`, `updated_at`, `uri`, `status`, `show_menu`, `order`, `icon`) VALUES
 	(1, '#', '#', '#', '#', '#', '#', NULL, '2021-03-12 16:43:45', '2021-03-12 16:46:12', '#', 1, 1, 0, NULL),
@@ -80,7 +80,7 @@ INSERT INTO `admin_resource` (`id`, `ten_hien_thi`, `resource`, `method`, `actio
 	(907, 'Load thông tin tài nguyên', 'POST | App\\Modules\\TaiNguyen\\Controllers\\TaiNguyenController@taiNguyenSingle', 'POST', 'App\\Modules\\TaiNguyen\\Controllers\\TaiNguyenController@taiNguyenSingle', '', '', 903, '2021-03-12 16:43:45', '2021-03-12 19:46:16', 'tai-nguyen-single', 1, 2, 1000, NULL),
 	(908, 'Cập nhật tài nguyên', 'POST | App\\Modules\\TaiNguyen\\Controllers\\TaiNguyenController@capNhatTaiNguyen', 'POST', 'App\\Modules\\TaiNguyen\\Controllers\\TaiNguyenController@capNhatTaiNguyen', '', '', 903, '2021-03-12 16:43:45', '2021-03-12 19:46:30', 'cap-nhat-tai-nguyen', 1, 2, 1000, NULL),
 	(909, 'Xóa tài nguyên', 'POST | App\\Modules\\TaiNguyen\\Controllers\\TaiNguyenController@xoaTaiNguyen', 'POST', 'App\\Modules\\TaiNguyen\\Controllers\\TaiNguyenController@xoaTaiNguyen', '', '', 903, '2021-03-12 16:43:45', '2021-03-12 19:46:41', 'xoa-tai-nguyen', 1, 2, 1000, NULL),
-	(910, 'Trang chủ', 'GET | App\\Modules\\TrangChu\\Controllers\\TrangChuController@home', 'GET', 'App\\Modules\\TrangChu\\Controllers\\TrangChuController@home', '', '', 1, '2021-03-12 16:43:45', '2021-03-13 06:25:54', '/', 1, 1, 1, '<i class="fa fa-home menu-icon"></i>'),
+	(910, 'Trang chủ', 'GET | App\\Modules\\TrangChu\\Controllers\\TrangChuController@home', 'GET', 'App\\Modules\\TrangChu\\Controllers\\TrangChuController@home', '', '', 1, '2021-03-12 16:43:45', '2021-03-13 10:52:08', '/', 1, 1, 1, '<i class="fa fa-home menu-icon"></i>'),
 	(911, 'Tài khoản', 'GET | App\\Modules\\User\\Controllers\\UserController@user', 'GET', 'App\\Modules\\User\\Controllers\\UserController@user', '', '', 1, '2021-03-12 16:43:45', '2021-03-13 06:26:17', 'user', 1, 1, 2, '<i class="fa fa-address-book menu-icon"></i>'),
 	(912, 'Xem danh sách tài khoản', 'POST | App\\Modules\\User\\Controllers\\UserController@danhSachUser', 'POST', 'App\\Modules\\User\\Controllers\\UserController@danhSachUser', '', '', 911, '2021-03-12 16:43:45', '2021-03-12 19:47:23', 'danh-sach-user', 1, 2, 1000, NULL),
 	(913, 'Tạo tài khoản', 'POST | App\\Modules\\User\\Controllers\\UserController@themUser', 'POST', 'App\\Modules\\User\\Controllers\\UserController@themUser', '', '', 911, '2021-03-12 16:43:45', '2021-03-12 19:47:40', 'them-user', 1, 2, 1000, NULL),
@@ -89,7 +89,7 @@ INSERT INTO `admin_resource` (`id`, `ten_hien_thi`, `resource`, `method`, `actio
 	(916, 'Xóa tài khoản', 'POST | App\\Modules\\User\\Controllers\\UserController@xoaUser', 'POST', 'App\\Modules\\User\\Controllers\\UserController@xoaUser', '', '', 911, '2021-03-12 16:43:45', '2021-03-12 19:49:47', 'xoa-user', 1, 2, 1000, NULL);
 /*!40000 ALTER TABLE `admin_resource` ENABLE KEYS */;
 
--- Dumping structure for table alcomputer.admin_role
+-- Dumping structure for table laraadmin.admin_role
 CREATE TABLE IF NOT EXISTS `admin_role` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `role_name` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -97,15 +97,16 @@ CREATE TABLE IF NOT EXISTS `admin_role` (
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table alcomputer.admin_role: ~1 rows (approximately)
+-- Dumping data for table laraadmin.admin_role: ~1 rows (approximately)
 /*!40000 ALTER TABLE `admin_role` DISABLE KEYS */;
 INSERT INTO `admin_role` (`id`, `role_name`, `state`, `created_at`, `updated_at`) VALUES
-	(1, 'ADMIN', 1, NULL, '2021-03-12 21:01:52');
+	(1, 'ADMIN', 1, NULL, '2021-03-12 21:01:52'),
+	(9, 'Nhân viên', 1, '2021-03-13 10:33:41', '2021-03-13 10:38:46');
 /*!40000 ALTER TABLE `admin_role` ENABLE KEYS */;
 
--- Dumping structure for table alcomputer.admin_rule
+-- Dumping structure for table laraadmin.admin_rule
 CREATE TABLE IF NOT EXISTS `admin_rule` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `role_id` int(10) unsigned NOT NULL,
@@ -117,58 +118,59 @@ CREATE TABLE IF NOT EXISTS `admin_rule` (
   KEY `admin_rule_resource_id_foreign` (`resource_id`),
   CONSTRAINT `admin_rule_resource_id_foreign` FOREIGN KEY (`resource_id`) REFERENCES `admin_resource` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `admin_rule_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `admin_role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=207 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=252 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table alcomputer.admin_rule: ~44 rows (approximately)
+-- Dumping data for table laraadmin.admin_rule: ~44 rows (approximately)
 /*!40000 ALTER TABLE `admin_rule` DISABLE KEYS */;
 INSERT INTO `admin_rule` (`id`, `role_id`, `resource_id`, `created_at`, `updated_at`) VALUES
-	(163, 1, 872, '2021-03-12 21:11:41', '2021-03-12 21:11:41'),
-	(164, 1, 873, '2021-03-12 21:11:41', '2021-03-12 21:11:41'),
-	(165, 1, 875, '2021-03-12 21:11:42', '2021-03-12 21:11:42'),
-	(166, 1, 876, '2021-03-12 21:11:42', '2021-03-12 21:11:42'),
-	(167, 1, 877, '2021-03-12 21:11:44', '2021-03-12 21:11:44'),
-	(168, 1, 878, '2021-03-12 21:11:44', '2021-03-12 21:11:44'),
-	(169, 1, 879, '2021-03-12 21:11:44', '2021-03-12 21:11:44'),
-	(170, 1, 880, '2021-03-12 21:11:44', '2021-03-12 21:11:44'),
-	(171, 1, 881, '2021-03-12 21:11:44', '2021-03-12 21:11:44'),
-	(172, 1, 882, '2021-03-12 21:11:44', '2021-03-12 21:11:44'),
-	(173, 1, 883, '2021-03-12 21:11:45', '2021-03-12 21:11:45'),
-	(174, 1, 884, '2021-03-12 21:11:45', '2021-03-12 21:11:45'),
-	(175, 1, 885, '2021-03-12 21:11:47', '2021-03-12 21:11:47'),
-	(176, 1, 886, '2021-03-12 21:11:47', '2021-03-12 21:11:47'),
-	(177, 1, 887, '2021-03-12 21:11:48', '2021-03-12 21:11:48'),
-	(178, 1, 888, '2021-03-12 21:11:48', '2021-03-12 21:11:48'),
-	(179, 1, 889, '2021-03-12 21:11:48', '2021-03-12 21:11:48'),
-	(180, 1, 890, '2021-03-12 21:11:48', '2021-03-12 21:11:48'),
-	(181, 1, 891, '2021-03-12 21:11:48', '2021-03-12 21:11:48'),
-	(182, 1, 892, '2021-03-12 21:11:48', '2021-03-12 21:11:48'),
-	(183, 1, 893, '2021-03-12 21:11:50', '2021-03-12 21:11:50'),
-	(184, 1, 894, '2021-03-12 21:11:50', '2021-03-12 21:11:50'),
-	(185, 1, 895, '2021-03-12 21:11:50', '2021-03-12 21:11:50'),
-	(186, 1, 896, '2021-03-12 21:11:50', '2021-03-12 21:11:50'),
-	(187, 1, 897, '2021-03-12 21:11:50', '2021-03-12 21:11:50'),
-	(188, 1, 898, '2021-03-12 21:11:50', '2021-03-12 21:11:50'),
-	(189, 1, 899, '2021-03-12 21:11:51', '2021-03-12 21:11:51'),
-	(190, 1, 900, '2021-03-12 21:11:51', '2021-03-12 21:11:51'),
-	(191, 1, 901, '2021-03-12 21:11:51', '2021-03-12 21:11:51'),
-	(192, 1, 902, '2021-03-12 21:11:51', '2021-03-12 21:11:51'),
-	(193, 1, 903, '2021-03-12 21:11:53', '2021-03-12 21:11:53'),
-	(194, 1, 904, '2021-03-12 21:11:53', '2021-03-12 21:11:53'),
-	(195, 1, 905, '2021-03-12 21:11:53', '2021-03-12 21:11:53'),
-	(196, 1, 906, '2021-03-12 21:11:53', '2021-03-12 21:11:53'),
-	(197, 1, 907, '2021-03-12 21:11:53', '2021-03-12 21:11:53'),
-	(198, 1, 908, '2021-03-12 21:11:53', '2021-03-12 21:11:53'),
-	(199, 1, 909, '2021-03-12 21:11:53', '2021-03-12 21:11:53'),
-	(200, 1, 910, '2021-03-12 21:11:54', '2021-03-12 21:11:54'),
-	(201, 1, 911, '2021-03-12 21:11:56', '2021-03-12 21:11:56'),
-	(202, 1, 912, '2021-03-12 21:11:56', '2021-03-12 21:11:56'),
-	(203, 1, 913, '2021-03-12 21:11:56', '2021-03-12 21:11:56'),
-	(204, 1, 914, '2021-03-12 21:11:56', '2021-03-12 21:11:56'),
-	(205, 1, 915, '2021-03-12 21:11:56', '2021-03-12 21:11:56'),
-	(206, 1, 916, '2021-03-12 21:11:56', '2021-03-12 21:11:56');
+	(207, 1, 910, '2021-03-13 10:34:12', '2021-03-13 10:34:12'),
+	(208, 1, 911, '2021-03-13 10:34:13', '2021-03-13 10:34:13'),
+	(209, 1, 912, '2021-03-13 10:34:13', '2021-03-13 10:34:13'),
+	(210, 1, 913, '2021-03-13 10:34:13', '2021-03-13 10:34:13'),
+	(211, 1, 914, '2021-03-13 10:34:13', '2021-03-13 10:34:13'),
+	(212, 1, 915, '2021-03-13 10:34:13', '2021-03-13 10:34:13'),
+	(213, 1, 916, '2021-03-13 10:34:13', '2021-03-13 10:34:13'),
+	(214, 1, 893, '2021-03-13 10:34:14', '2021-03-13 10:34:14'),
+	(215, 1, 894, '2021-03-13 10:34:14', '2021-03-13 10:34:14'),
+	(216, 1, 895, '2021-03-13 10:34:14', '2021-03-13 10:34:14'),
+	(217, 1, 896, '2021-03-13 10:34:14', '2021-03-13 10:34:14'),
+	(218, 1, 897, '2021-03-13 10:34:14', '2021-03-13 10:34:14'),
+	(219, 1, 898, '2021-03-13 10:34:14', '2021-03-13 10:34:14'),
+	(220, 1, 899, '2021-03-13 10:34:16', '2021-03-13 10:34:16'),
+	(221, 1, 900, '2021-03-13 10:34:16', '2021-03-13 10:34:16'),
+	(222, 1, 901, '2021-03-13 10:34:16', '2021-03-13 10:34:16'),
+	(223, 1, 902, '2021-03-13 10:34:16', '2021-03-13 10:34:16'),
+	(224, 1, 903, '2021-03-13 10:34:17', '2021-03-13 10:34:17'),
+	(225, 1, 904, '2021-03-13 10:34:17', '2021-03-13 10:34:17'),
+	(226, 1, 905, '2021-03-13 10:34:17', '2021-03-13 10:34:17'),
+	(227, 1, 906, '2021-03-13 10:34:17', '2021-03-13 10:34:17'),
+	(228, 1, 907, '2021-03-13 10:34:17', '2021-03-13 10:34:17'),
+	(229, 1, 908, '2021-03-13 10:34:17', '2021-03-13 10:34:17'),
+	(230, 1, 909, '2021-03-13 10:34:17', '2021-03-13 10:34:17'),
+	(231, 1, 887, '2021-03-13 10:34:19', '2021-03-13 10:34:19'),
+	(232, 1, 888, '2021-03-13 10:34:19', '2021-03-13 10:34:19'),
+	(233, 1, 889, '2021-03-13 10:34:19', '2021-03-13 10:34:19'),
+	(234, 1, 890, '2021-03-13 10:34:19', '2021-03-13 10:34:19'),
+	(235, 1, 891, '2021-03-13 10:34:19', '2021-03-13 10:34:19'),
+	(236, 1, 892, '2021-03-13 10:34:19', '2021-03-13 10:34:19'),
+	(237, 1, 885, '2021-03-13 10:34:20', '2021-03-13 10:34:20'),
+	(238, 1, 886, '2021-03-13 10:34:20', '2021-03-13 10:34:20'),
+	(239, 1, 883, '2021-03-13 10:34:22', '2021-03-13 10:34:22'),
+	(240, 1, 884, '2021-03-13 10:34:22', '2021-03-13 10:34:22'),
+	(241, 1, 872, '2021-03-13 10:34:23', '2021-03-13 10:34:23'),
+	(242, 1, 873, '2021-03-13 10:34:23', '2021-03-13 10:34:23'),
+	(243, 1, 875, '2021-03-13 10:34:25', '2021-03-13 10:34:25'),
+	(244, 1, 876, '2021-03-13 10:34:25', '2021-03-13 10:34:25'),
+	(245, 1, 877, '2021-03-13 10:34:27', '2021-03-13 10:34:27'),
+	(246, 1, 878, '2021-03-13 10:34:27', '2021-03-13 10:34:27'),
+	(247, 1, 879, '2021-03-13 10:34:27', '2021-03-13 10:34:27'),
+	(248, 1, 880, '2021-03-13 10:34:27', '2021-03-13 10:34:27'),
+	(249, 1, 881, '2021-03-13 10:34:27', '2021-03-13 10:34:27'),
+	(250, 1, 882, '2021-03-13 10:34:27', '2021-03-13 10:34:27'),
+	(251, 9, 910, '2021-03-13 10:57:53', '2021-03-13 10:57:53');
 /*!40000 ALTER TABLE `admin_rule` ENABLE KEYS */;
 
--- Dumping structure for table alcomputer.dm_cap_don_vi
+-- Dumping structure for table laraadmin.dm_cap_don_vi
 CREATE TABLE IF NOT EXISTS `dm_cap_don_vi` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ma_cap` varchar(50) DEFAULT NULL,
@@ -176,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `dm_cap_don_vi` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Dumping data for table alcomputer.dm_cap_don_vi: ~8 rows (approximately)
+-- Dumping data for table laraadmin.dm_cap_don_vi: ~8 rows (approximately)
 /*!40000 ALTER TABLE `dm_cap_don_vi` DISABLE KEYS */;
 INSERT INTO `dm_cap_don_vi` (`id`, `ma_cap`, `ten_cap`) VALUES
 	(1, 'UBT', 'UBND Tỉnh'),
@@ -189,7 +191,7 @@ INSERT INTO `dm_cap_don_vi` (`id`, `ma_cap`, `ten_cap`) VALUES
 	(8, 'XA', 'Viễn thông cấp huyện');
 /*!40000 ALTER TABLE `dm_cap_don_vi` ENABLE KEYS */;
 
--- Dumping structure for table alcomputer.dm_phuong_xa
+-- Dumping structure for table laraadmin.dm_phuong_xa
 CREATE TABLE IF NOT EXISTS `dm_phuong_xa` (
   `ma_phuong_xa` int(10) unsigned NOT NULL,
   `ten_phuong_xa` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -202,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `dm_phuong_xa` (
   CONSTRAINT `FK_dm_xaphuong_DM_quanhuyen` FOREIGN KEY (`ma_quan_huyen`) REFERENCES `dm_quan_huyen` (`ma_quan_huyen`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table alcomputer.dm_phuong_xa: ~106 rows (approximately)
+-- Dumping data for table laraadmin.dm_phuong_xa: ~106 rows (approximately)
 /*!40000 ALTER TABLE `dm_phuong_xa` DISABLE KEYS */;
 INSERT INTO `dm_phuong_xa` (`ma_phuong_xa`, `ten_phuong_xa`, `loai`, `ma_quan_huyen`, `created_at`, `updated_at`) VALUES
 	(29236, 'Phường 4', 'Phuong', 842, '2020-08-13 02:48:54', '2020-08-13 02:48:54'),
@@ -313,7 +315,7 @@ INSERT INTO `dm_phuong_xa` (`ma_phuong_xa`, `ten_phuong_xa`, `loai`, `ma_quan_hu
 	(29539, 'Xã Hiệp Thạnh', 'Xa', 851, '2020-08-13 02:48:54', '2020-08-13 02:48:54');
 /*!40000 ALTER TABLE `dm_phuong_xa` ENABLE KEYS */;
 
--- Dumping structure for table alcomputer.dm_quan_huyen
+-- Dumping structure for table laraadmin.dm_quan_huyen
 CREATE TABLE IF NOT EXISTS `dm_quan_huyen` (
   `ma_quan_huyen` int(10) unsigned NOT NULL,
   `ten_quan_huyen` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -324,7 +326,7 @@ CREATE TABLE IF NOT EXISTS `dm_quan_huyen` (
   PRIMARY KEY (`ma_quan_huyen`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table alcomputer.dm_quan_huyen: ~9 rows (approximately)
+-- Dumping data for table laraadmin.dm_quan_huyen: ~9 rows (approximately)
 /*!40000 ALTER TABLE `dm_quan_huyen` DISABLE KEYS */;
 INSERT INTO `dm_quan_huyen` (`ma_quan_huyen`, `ten_quan_huyen`, `ma_tinh`, `loai`, `updated_at`, `created_at`) VALUES
 	(842, 'Thành phố Trà Vinh', '84', 'TP', '2020-08-13 02:00:55', '2020-08-13 02:00:55'),
@@ -338,7 +340,7 @@ INSERT INTO `dm_quan_huyen` (`ma_quan_huyen`, `ten_quan_huyen`, `ma_tinh`, `loai
 	(851, 'Thị xã Duyên Hải', '84', 'TX', '2020-08-13 02:00:55', '2020-08-13 02:00:55');
 /*!40000 ALTER TABLE `dm_quan_huyen` ENABLE KEYS */;
 
--- Dumping structure for table alcomputer.dm_tham_so_he_thong
+-- Dumping structure for table laraadmin.dm_tham_so_he_thong
 CREATE TABLE IF NOT EXISTS `dm_tham_so_he_thong` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ma_tham_so` varchar(250) DEFAULT NULL,
@@ -349,11 +351,11 @@ CREATE TABLE IF NOT EXISTS `dm_tham_so_he_thong` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table alcomputer.dm_tham_so_he_thong: ~0 rows (approximately)
+-- Dumping data for table laraadmin.dm_tham_so_he_thong: ~0 rows (approximately)
 /*!40000 ALTER TABLE `dm_tham_so_he_thong` DISABLE KEYS */;
 /*!40000 ALTER TABLE `dm_tham_so_he_thong` ENABLE KEYS */;
 
--- Dumping structure for table alcomputer.don_vi
+-- Dumping structure for table laraadmin.don_vi
 CREATE TABLE IF NOT EXISTS `don_vi` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ma_don_vi` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -376,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `don_vi` (
   CONSTRAINT `FK_don_vi_don_vi` FOREIGN KEY (`parent_id`) REFERENCES `don_vi` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table alcomputer.don_vi: ~25 rows (approximately)
+-- Dumping data for table laraadmin.don_vi: ~28 rows (approximately)
 /*!40000 ALTER TABLE `don_vi` DISABLE KEYS */;
 INSERT INTO `don_vi` (`id`, `ma_don_vi`, `ten_don_vi`, `ma_phuong_xa`, `ma_cap`, `ma_dinh_danh`, `email`, `co_dinh`, `di_dong`, `fax`, `parent_id`, `order`, `state`) VALUES
 	(1, NULL, 'Tỉnh Trà Vinh', 29239, 'UBT', '000.00.00.H59', NULL, NULL, NULL, NULL, NULL, 0, 1),
@@ -406,7 +408,7 @@ INSERT INTO `don_vi` (`id`, `ma_don_vi`, `ten_don_vi`, `ma_phuong_xa`, `ma_cap`,
 	(35, NULL, 'Tthị xã Duyên Hải', 29512, 'Xa', '001.03.01.H59', NULL, NULL, NULL, NULL, 26, 1, 1);
 /*!40000 ALTER TABLE `don_vi` ENABLE KEYS */;
 
--- Dumping structure for table alcomputer.password_resets
+-- Dumping structure for table laraadmin.password_resets
 CREATE TABLE IF NOT EXISTS `password_resets` (
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -414,13 +416,13 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
   KEY `password_resets_email_index` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table alcomputer.password_resets: ~0 rows (approximately)
+-- Dumping data for table laraadmin.password_resets: ~0 rows (approximately)
 /*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 	('thanhpv.tvh', '$2y$10$GeJq5nbaNzdeY8UqlCnDIOIh6uSHYw5iZcRhpKuPxDrBtqBT4qAG.', '2019-06-20 02:17:07');
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
 
--- Dumping structure for table alcomputer.users
+-- Dumping structure for table laraadmin.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `role_id` int(10) unsigned DEFAULT NULL,
@@ -437,13 +439,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `FK_users_admin_role` (`role_id`),
   CONSTRAINT `FK_users_admin_role` FOREIGN KEY (`role_id`) REFERENCES `admin_role` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table alcomputer.users: ~2 rows (approximately)
+-- Dumping data for table laraadmin.users: ~2 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `password`, `hinh_anh`, `remember_token`, `created_at`, `updated_at`, `di_dong`, `state`) VALUES
-	(1, 1, 'Quản trị hệ thống', 'admin', '$2y$10$VZI0siYq7lRPvqt8e.QbXOWDBelj91YwJoLsEKx4GxbWH5XQb87xO', '/user.png', 'k5qMwFAiDw2vTxbwXx9S0Gg5KJRsIPs2bZSqO4pwSplKWVItXD9RpMMLshGq', '2021-03-12 20:57:11', '2021-03-12 21:48:10', '0941138484', 1),
-	(3, 1, 'test', 'test', '$2y$10$lJa0GHz7joT3Bk8bCHUZa.r9sLdsknhnYUy2ZMH8cfQWth3rMaqf.', '/user.png', 'ICUhjIjBFWJs0tWVq4CJBKZUFgoqv7CSyYgrBvD2eGHjgntRr1pNh9RyhwXP', '2021-03-12 20:57:11', '2021-03-12 21:50:06', '0941138484', 1);
+	(1, 1, 'Quản trị hệ thống', 'admin', '$2y$10$VZI0siYq7lRPvqt8e.QbXOWDBelj91YwJoLsEKx4GxbWH5XQb87xO', '/user.png', 'klX9rtip3Sqwqmj627ltooqWodqYL7eWGWYNrOt293a3E5mJbjJfOGB1SunG', '2021-03-12 20:57:11', '2021-03-13 10:57:58', '0941138484', 1),
+	(7, 9, 'PHAN VĂN THANH', 'thanhpv.tvh', '$2y$10$GI0MnyNj0yytX2lJCa0/MecdopxaogmgkVN2odxH2OvxTSupEBKS6', 'al_16156058900.jpg;', NULL, '2021-03-13 10:24:50', '2021-03-13 10:38:34', '0941138484', 1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
