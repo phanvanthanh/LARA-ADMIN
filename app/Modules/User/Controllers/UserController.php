@@ -89,6 +89,11 @@ class UserController extends Controller{
                 }else{
                     unset($dataForm["password"]);
                 }
+                if($request->hasFile('hinh_anh')) {
+                    $dataForm['hinh_anh']=\Helper::getAndStoreFile($request->file('hinh_anh'));
+                }else{
+                    unset($dataForm['hinh_anh']);
+                }
                 $user=User::where("id","=",$id);
                 $user->update($dataForm);
                 return array("error"=>'');

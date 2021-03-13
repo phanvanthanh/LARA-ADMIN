@@ -32,17 +32,18 @@
         </div>
      </div>
 
-     <div class="form-group row">
-        <label for="hinh_anh" class="col-sm-4 col-form-label ">Ảnh đại diện</label>       
-        <div class="input-group col-sm-8">
+      <div class="form-group row">
+        <label for="hinh_anh" class="col-sm-4 col-form-label ">Hình ảnh</label>
+        <div class="col-sm-8">
+          <div class="input-group col-xs-12">              
             <input type="text" class="form-control d-none d-sm-block" disabled="" placeholder="Có thể upload các file hình ảnh, video, word, excel, pdf.">
             <div class="input-group-append">
-              <button class="btn btn-vnpt btn-browse-file" click-on-class=".input-file" type="button"><i class="icon-cloud-upload"></i> Chọn file cần upload</button>         
+              <button class="btn btn-vnpt btn-browse-file" click-on-class=".input-file" type="button"><i class="icon-cloud-upload"></i> Chọn hình ảnh</button>         
               <input type="file" class="input-file" show-file=".giz-upload-01" name="hinh_anh[]" multiple hidden="true">
-            </div>
-            <span class="show-file giz-upload-01"></span>
+            </div> <br>
           </div>
-        
+          <span class="show-file giz-upload-01"></span>
+        </div>
       </div>
 
       <div class="form-group row">
