@@ -1,7 +1,7 @@
 <?php
 $namespace = 'App\Modules\DmPhuongXa\Controllers';
 Route::group(
-    ['module'=>'DmPhuongXa', 'namespace' => $namespace, 'middleware'=>['web']],
+    ['module'=>'DmPhuongXa', 'namespace' => $namespace, 'middleware'=>['web','auth','check-role']],
     function() {
         Route::get('/dm-phuong-xa', [
             'as' => 'dm-phuong-xa',

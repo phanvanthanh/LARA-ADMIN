@@ -4,15 +4,13 @@
    $resources=array();
    $userId=Auth::id();
    if($userId){
-      $resources = AdminResource::where('status','=',1)->where('id','!=',1)->where('show_menu','=',1)->orderBy('order')->get()->toArray();
-      $resources=\Helper::paycTreeResourceHasChild($resources, 1);
-   }else{
+      $roleId=Auth::user()->role_id;
       $resources = AdminRule::select('admin_resource.id', 'admin_resource.ten_hien_thi', 'admin_resource.parent_id', 'admin_resource.icon', 'admin_resource.uri')
          ->leftJoin('admin_resource','admin_rule.resource_id','=','admin_resource.id')
          ->where('admin_resource.status','=',1)
          ->where('admin_resource.id','!=',1)
          ->where('admin_resource.show_menu','=',1)
-         ->where('admin_rule.role_id','=',1) // Lay quyen cua role vang lai
+         ->where('admin_rule.role_id','=',$roleId)
          ->orderBy('admin_resource.order')
          ->get()->toArray();
       $resources=\Helper::paycTreeResourceHasChild($resources, 1);
@@ -29,15 +27,7 @@
                   <div class="tab-content" id="setting-content">
                      <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
                         <div class="list-wrapper px-3">
-                           <!-- <ul class="d-flex flex-column-reverse todo-list">
-                              <li class="logout">
-                                 <div class="form-check">
-                                    <i class="icon-lock-open"></i> &nbsp;&nbsp;&nbsp;&nbsp;
-                                       ToDo
-                                 </div>
-                                 <i class="remove mdi mdi-close-circle-outline"></i>
-                              </li>
-                           </ul> -->
+                           
                         </div>
                      </div>
                      <!-- To do section tab ends -->

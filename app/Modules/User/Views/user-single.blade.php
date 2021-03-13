@@ -33,17 +33,28 @@
      </div>
 
      <div class="form-group row">
-        <label for="hinh_anh" class="col-sm-4 col-form-label ">Ảnh đại diện</label>
-        <!-- <label for="tieu_de" class="text-title-input-size">* Upload file</label> -->               
+        <label for="hinh_anh" class="col-sm-4 col-form-label ">Ảnh đại diện</label>       
         <div class="input-group col-sm-8">
             <input type="text" class="form-control d-none d-sm-block" disabled="" placeholder="Có thể upload các file hình ảnh, video, word, excel, pdf.">
             <div class="input-group-append">
               <button class="btn btn-vnpt btn-browse-file" click-on-class=".input-file" type="button"><i class="icon-cloud-upload"></i> Chọn file cần upload</button>         
-              <input type="file" class="input-file" show-file=".giz-upload-01" name="file_payc[]" multiple hidden="true">
+              <input type="file" class="input-file" show-file=".giz-upload-01" name="hinh_anh[]" multiple hidden="true">
             </div>
+            <span class="show-file giz-upload-01"></span>
           </div>
-        <span class="show-file giz-upload-01"></span>
+        
       </div>
+
+      <div class="form-group row">
+        <label for="role_id" class="col-sm-4 col-form-label">Nhóm quyền</label>
+        <div class="col-sm-8">
+           <select class="form-control role_id" name="role_id">
+            @foreach($roles as $role)
+            <option value="{{$role['id']}}" @if($checkData==1)  @if($data['role_id']==$role['id']){{'selected="selected"'}}@endif @endif>{{$role['role_name']}}</option>
+            @endforeach
+          </select>
+        </div>
+     </div> 
 
      <div class="form-group row">
         <label for="state" class="col-sm-4 col-form-label">Trạng thái mở/đóng</label>
@@ -53,7 +64,9 @@
             <option value="0" @if($checkData==1)  @if($data['state']==0){{'selected="selected"'}}@endif @endif>Đóng</option>
           </select>
         </div>
-     </div>         
+     </div>    
+     <script type="text/javascript" src="{{ asset('public/js/uploadFile.js') }}"></script>
+     <script type="text/javascript" src="{{ asset('public/js/showFile.js') }}"></script> 
 @else
   {{ csrf_field() }}
   <div class='text-danger'><b>Lỗi!</b> {{$error}}</div>

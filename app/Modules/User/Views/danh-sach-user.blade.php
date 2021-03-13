@@ -5,6 +5,7 @@
             <th>Họ tên</th>
             <th>Email</th>
             <th>Di động</th>
+            <th>Nhóm quyền</th>
             <th>Trạng thái</th>
             <th>Xử lý</th>
         </tr>
@@ -26,6 +27,9 @@
                 </td>
                 <td>                    
                     {{$user['di_dong']}}
+                </td>
+                <td>
+                    {{$user['role_name']}}
                 </td>
                 <td>
                     <label class=" @if($user['state']==1) {{'text-primary'}} @else {{'text-danger'}} @endif">@if($user['state']==1) {{'Đang hoạt động'}} @else {{'Ngừng hoạt động'}} @endif</label>

@@ -29,7 +29,9 @@ class UserController extends Controller{
     public function danhSachUser(Request $request){
         if(RequestAjax::ajax()){ // Kiểm tra gửi đường ajax
             $error=''; // Khai báo biến
-            $users=User::all()->toArray();
+            $users=User::select('users.id','users.role_id','users.name','users.email','users.di_dong','users.state','admin_role.role_name')
+            ->leftJoin('admin_role','users.role_id','=','admin_role.id')
+            ->get()->toArray();
             $view=view('User::danh-sach-user', compact('users','error'))->render(); // Trả dữ liệu ra view 
             return response()->json(['html'=>$view,'error'=>$error]); // Return dữ liệu ra ajax
         }
@@ -40,6 +42,9 @@ class UserController extends Controller{
         if(RequestAjax::ajax()){ // Kiểm tra gửi đường ajax
             $data=RequestAjax::all(); // Lấy tất cả dữ liệu
             $data['password']=bcrypt($data['password']);
+            if ($request->hasFile('hinh_anh')) {
+                $data['hinh_anh']=\Helper::getAndStoreFile($request->file('hinh_anh'));
+            }
             User::create($data); // Lưu dữ liệu vào DB
             return array("error"=>''); // Trả về thông báo lưu dữ liệu thành công
         }
@@ -51,6 +56,7 @@ class UserController extends Controller{
             // Khai báo các dữ liệu bên form cần thiết
             $error='';
             $dataForm=RequestAjax::all(); $data=array();
+            $roles=AdminRole::all()->toArray();
             // Kiểm tra dữ liệu không hợp lệ
             if(isset($dataForm['id'])){ // ngược lại dữ liệu hợp lệ
                 $data = User::where("id","=",$dataForm['id'])->get(); // kiểm tra dữ liệu trong DB
@@ -61,7 +67,7 @@ class UserController extends Controller{
                     $error="";
                 }
             }            
-            $view=view('User::user-single', compact('data','error'))->render(); // Trả dữ liệu ra view trước     
+            $view=view('User::user-single', compact('data', 'roles','error'))->render(); // Trả dữ liệu ra view trước     
             return response()->json(['html'=>$view, 'error'=>$error]); // return dữ liệu về AJAX sau
         }
         return array('error'=>"Không tìm thấy phương thức truyền dữ liệu"); // return dữ liệu về AJAX

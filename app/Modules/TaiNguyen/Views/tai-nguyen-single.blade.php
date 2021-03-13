@@ -60,9 +60,10 @@
             <div class="col-sm-8">
                <select class="form-control show_menu" name="show_menu">
                 
-                <option @if($checkData==1) @if($data->show_menu==1){{'selected=selected'}}@endif @endif value="1">Hiển thị trên menu trái</option>
+                <option @if($checkData==1) @if($data->show_menu==1){{'selected=selected'}}@endif @endif value="1">Hiển thị trên menu trái (khi có quyền)</option>
                 <option @if($checkData==1) @if($data->show_menu==2){{'selected=selected'}}@endif @endif value="2">Ẩn trên menu</option>
                 <option @if($checkData==1) @if($data->show_menu==3){{'selected=selected'}}@endif @endif value="3">Không hiển thị trên tất cả các chức năng</option>
+                <option @if($checkData==1) @if($data->show_menu==4){{'selected=selected'}}@endif @endif value="4">Hiển thị trên menu trái mặc (dù không có quyền)</option>
               </select>
             </div>
          </div>

@@ -10,9 +10,9 @@ namespace App\Http\Middleware;
  
 use Closure;
 use Illuminate\Support\Facades\Route;
-use App\Modules\TaiNguyen\Models\AdminResource;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use App\AdminResource;
 
 class CheckRole
 {
@@ -26,7 +26,7 @@ class CheckRole
     public function handle($request, Closure $next)
     {
         $userId = Auth::id();
-        /*$currentAction=Route::getCurrentRoute()->getActionName();
+        $currentAction=Route::getCurrentRoute()->getActionName();
         $currentMethods=Route::getCurrentRoute()->methods()[0];
 
         $checkPermissionResource = AdminResource::where('admin_resource.action', '=', $currentAction)
@@ -39,11 +39,24 @@ class CheckRole
             if(!Auth::check()){
                 die(var_dump(Auth::check()));
                 return redirect()->intended('/');    
-            }            
-            echo 'Bạn không có quyền truy cập địa chỉ này <a href="/">quay lại</a>';
+            }         
+            echo '<p>Chức năng không khả dụng. Bạn sẽ <b>quay lại trang chủ</b>  sau <b><span id="counter">5</span> giây(s).</p></b>
+            <script type="text/javascript">
+            function countdown() {
+                var i = document.getElementById("counter");
+                if (parseInt(i.innerHTML)<=0) {
+                    location.href = "/";
+                }
+            if (parseInt(i.innerHTML)!=0) {
+                i.innerHTML = parseInt(i.innerHTML)-1;
+            }
+            }
+            setInterval(function(){ countdown(); },1000);
+            </script>';
             exit();
-        }*/
+        }
         return $next($request);
     }
+    
 }
 
