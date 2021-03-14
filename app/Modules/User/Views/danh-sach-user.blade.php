@@ -2,6 +2,7 @@
     <thead>
         <tr class="background-vnpt text-center">
             <th>STT #</th>
+            <th>Ảnh</th>
             <th>Họ tên</th>
             <th>Email</th>
             <th>Di động</th>
@@ -19,6 +20,18 @@
             <?php $stt++; ?>
             <tr class="tr-hover tr-small">
                 <td class="text-center">{{$stt}}</td>
+                <td class="text-center">
+                    @php
+                        $files=explode(";",$user['hinh_anh']);
+                        foreach($files as $file){
+                            if($file){
+                            @endphp
+                                <img src="{{ asset('storage/app/public/file/payc/'.$file) }}" width="34px" height="40px">
+                            @php
+                            }
+                        }
+                    @endphp
+                </td>
                 <td class='text-primary'>
                     {{$user['name']}}
                 </td>

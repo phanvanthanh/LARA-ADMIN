@@ -29,7 +29,7 @@ class UserController extends Controller{
     public function danhSachUser(Request $request){
         if(RequestAjax::ajax()){ // Kiểm tra gửi đường ajax
             $error=''; // Khai báo biến
-            $users=User::select('users.id','users.role_id','users.name','users.email','users.di_dong','users.state','admin_role.role_name')
+            $users=User::select('users.id','users.role_id','users.name','users.email','users.di_dong','users.state','admin_role.role_name','users.hinh_anh')
             ->leftJoin('admin_role','users.role_id','=','admin_role.id')
             ->get()->toArray();
             $view=view('User::danh-sach-user', compact('users','error'))->render(); // Trả dữ liệu ra view 
