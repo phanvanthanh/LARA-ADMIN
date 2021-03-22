@@ -40,8 +40,15 @@
                <select class="form-control parent_id" name="parent_id" @if($checkData==1) value="{{$data->parent_id}}" @endif>
                 <option value="1" >Menu trái</option>
                 @foreach($resources as $resource)
-                  @if($resource->parent_id==1)
-                    <option @if($checkData==1) @if($data->parent_id==$resource->id){{'selected="selected"'}}@endif @endif value="{{$resource->id}}">{{$resource->ten_hien_thi}}</option>
+                  @if($resource['id']!=1)
+                    <option @if($checkData==1) @if($data->parent_id==$resource['id']){{'selected="selected"'}}@endif @endif value="{{$resource['id']}}">
+                      @if($resource['level']>0)
+                          @for ($i = 0; $i < $resource['level']; $i++)
+                              __ 
+                          @endfor
+                      @endif  
+                      {{$resource['ten_hien_thi']}}
+                    </option>
                   @endif
                 @endforeach
               </select>
@@ -60,10 +67,9 @@
             <div class="col-sm-8">
                <select class="form-control show_menu" name="show_menu">
                 
-                <option @if($checkData==1) @if($data->show_menu==1){{'selected=selected'}}@endif @endif value="1">Hiển thị trên menu trái (khi có quyền)</option>
+                <option @if($checkData==1) @if($data->show_menu==1){{'selected=selected'}}@endif @endif value="1">Hiển thị trên menu trái</option>
                 <option @if($checkData==1) @if($data->show_menu==2){{'selected=selected'}}@endif @endif value="2">Ẩn trên menu</option>
                 <option @if($checkData==1) @if($data->show_menu==3){{'selected=selected'}}@endif @endif value="3">Không hiển thị trên tất cả các chức năng</option>
-                <option @if($checkData==1) @if($data->show_menu==4){{'selected=selected'}}@endif @endif value="4">Hiển thị trên menu trái mặc (dù không có quyền)</option>
               </select>
             </div>
          </div>

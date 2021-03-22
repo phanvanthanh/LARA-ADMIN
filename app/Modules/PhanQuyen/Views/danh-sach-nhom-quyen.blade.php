@@ -16,7 +16,7 @@
                 <td class="text-center">{{$stt}}</td>
                 <td class='text-primary'>
                     {{$role['role_name']}}
-                </td>             
+                </td>              
             </tr>
         @endforeach    
     </tbody>

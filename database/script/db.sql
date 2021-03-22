@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `admin_role` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table laraadmin.admin_role: ~1 rows (approximately)
+-- Dumping data for table laraadmin.admin_role: ~2 rows (approximately)
 /*!40000 ALTER TABLE `admin_role` DISABLE KEYS */;
 INSERT INTO `admin_role` (`id`, `role_name`, `state`, `created_at`, `updated_at`) VALUES
 	(1, 'ADMIN', 1, NULL, '2021-03-12 21:01:52'),
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `admin_rule` (
   CONSTRAINT `admin_rule_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `admin_role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=252 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table laraadmin.admin_rule: ~44 rows (approximately)
+-- Dumping data for table laraadmin.admin_rule: ~45 rows (approximately)
 /*!40000 ALTER TABLE `admin_rule` DISABLE KEYS */;
 INSERT INTO `admin_rule` (`id`, `role_id`, `resource_id`, `created_at`, `updated_at`) VALUES
 	(207, 1, 910, '2021-03-13 10:34:12', '2021-03-13 10:34:12'),
@@ -378,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `don_vi` (
   CONSTRAINT `FK_don_vi_don_vi` FOREIGN KEY (`parent_id`) REFERENCES `don_vi` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table laraadmin.don_vi: ~28 rows (approximately)
+-- Dumping data for table laraadmin.don_vi: ~25 rows (approximately)
 /*!40000 ALTER TABLE `don_vi` DISABLE KEYS */;
 INSERT INTO `don_vi` (`id`, `ma_don_vi`, `ten_don_vi`, `ma_phuong_xa`, `ma_cap`, `ma_dinh_danh`, `email`, `co_dinh`, `di_dong`, `fax`, `parent_id`, `order`, `state`) VALUES
 	(1, NULL, 'Tỉnh Trà Vinh', 29239, 'UBT', '000.00.00.H59', NULL, NULL, NULL, NULL, NULL, 0, 1),
