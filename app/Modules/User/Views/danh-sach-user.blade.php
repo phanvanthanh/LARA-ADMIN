@@ -32,7 +32,7 @@
                         }
                     @endphp
                 </td>
-                <td class='text-primary'>
+                <td class="text-primary btn-sua" data="{{$user['id']}}">
                     {{$user['name']}}
                 </td>
                 <td>                    

@@ -22,7 +22,7 @@
                 <td class="text-center">                    
                     {{$stt}}
                 </td>
-                <td  class="t-tree cusor" data-id="{{$donVi['id']}}" data-parent="{{$donVi['parent_id']}}" data-show="1">      
+                <td  class="t-tree cusor btn-sua" data="{{$donVi['id']}}" data-id="{{$donVi['id']}}" data-parent="{{$donVi['parent_id']}}" data-show="1">      
                     @if($donVi['level']>0)
                         @for ($i = 0; $i < $donVi['level']; $i++)
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -21,7 +21,7 @@
                 <?php $stt++; ?>
                 <tr class="tr-hover tr-small">
                     <td class="text-center">{{$stt}}</td>
-                    <td class="t-tree cusor" data-id="{{$resource['id']}}" data-parent="{{$resource['parent_id']}}" data-show="1">
+                    <td class="t-tree cusor sua-tai-nguyen" data="{{$resource['id']}}" data-id="{{$resource['id']}}" data-parent="{{$resource['parent_id']}}" data-show="1">
                         @if($resource['level']>0)
                             @for ($i = 0; $i < $resource['level']; $i++)
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

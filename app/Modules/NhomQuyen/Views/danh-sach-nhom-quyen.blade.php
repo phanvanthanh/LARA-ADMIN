@@ -16,7 +16,7 @@
             <?php $stt++; ?>
             <tr class="tr-hover tr-small">
                 <td class="text-center">{{$stt}}</td>
-                <td class='text-primary'>
+                <td class="text-primary btn-sua" data="{{$role['id']}}">
                     {{$role['role_name']}}
                 </td>
                 <td>
