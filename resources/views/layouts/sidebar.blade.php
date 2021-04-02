@@ -44,7 +44,7 @@
                            </div>
                            <div class="profile-name">
                               <p class="name">
-                                 <b><h3> AL COMPUTER </h3></b>
+                                 <b><h3> AN LẠC COMPUTER </h3></b>
                               </p>
                               <!-- <p class="designation">
                                  chế độ ẩn danh

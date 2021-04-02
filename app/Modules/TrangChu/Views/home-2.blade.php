@@ -3,7 +3,7 @@
 @section('content')
 	<div class="row" style="margin-top: 10px;">
 		<div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		 	<div class="blog-slider">
+		 	<div class="blog-slider" style="margin-top: 60px;">
 			  <div class="blog-slider__wrp swiper-wrapper">
 			    <div class="blog-slider__item swiper-slide">
 			      <div class="blog-slider__img">
@@ -139,5 +139,3 @@
 		</div>
 	</div>
 @endsection
-
-
